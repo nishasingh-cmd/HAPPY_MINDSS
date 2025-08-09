@@ -1,0 +1,118 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Minds - Mental Wellness</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #fff68f, #fffacd);
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background-color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 2em;
+      font-weight: bold;
+      color: #ffb700;
+    }
+
+    .navbar ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #333;
+      font-size: 1.1em;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .navbar ul li a:hover {
+      transform: scale(1.2);
+      color: #ffa500;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 80px);
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero h1 {
+      font-size: 4em;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.5em;
+      color: #444;
+      margin-bottom: 30px;
+    }
+
+    .start-btn {
+      padding: 15px 30px;
+      font-size: 1.2em;
+      font-weight: bold;
+      background-color: #ffdd57;
+      color: #333;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .start-btn:hover {
+      background-color: #ffb700;
+      transform: scale(1.05);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">Happy Minds</div>
+    <ul>
+      <li><a href="#">User</a></li>
+      <li><a href="#">Admin</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <h1>Welcome to Happy Minds</h1>
+    <p>Your personal companion for mental well-being</p>
+    <button class="start-btn" onclick="window.location.href='login.html'">Get Started</button>
+  </div>
+</body>
+</html>

@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Minds — Mental Health Support</title>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="flower flower-left" aria-hidden="true"></div>
+      <div class="title-block">
+        <div class="studio">Studio Shodwe</div>
+        <h1 class="logo">Happy Minds</h1>
+      </div>
+      <div class="flower flower-right" aria-hidden="true"></div>
+    </div>
+    <nav class="nav">
+      <a href="#" data-route="home" class="active"><i class="fas fa-home"></i> Home</a>
+      <a href="#" data-route="checkin"><i class="fas fa-heart"></i> Check-in</a>
+      <a href="#" data-route="journal"><i class="fas fa-book"></i> Journal</a>
+      <a href="#" data-route="music"><i class="fas fa-music"></i> Music</a>
+      <a href="#" data-route="resources"><i class="fas fa-lightbulb"></i> Resources</a>
+      <a href="#" data-route="reports"><i class="fas fa-chart-line"></i> Reports</a>
+    </nav>
+    <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+  </header>
+
+  <main id="app">
+    <!-- Home / Landing -->
+    <section id="home" class="page active">
+      <div class="hero">
+        <div class="hero-left">
+          <h2>We are open</h2>
+          <p>Welcome to <strong>Happy Minds</strong> — your friendly, daily mental health companion. Quick check-ins, guided support, and gentle nudges to help you feel better every day.</p>
+          <div class="hero-cta">
+            <button id="start-checkin" class="btn">Start Check-in</button>
+            <button id="open-journal" class="btn btn-outline">Journal Now</button>
+            <button id="chat-toggle" class="btn btn-pink">Talk to Mindy <i class="fas fa-robot"></i></button>
+          </div>
+        </div>
+        <div class="hero-right">
+          <div class="card-wavy">
+            <div class="we-are-open">We Are <span>Open</span></div>
+            <div class="small-info">Daily mental health support</div>
+          </div>
+        </div>
+      </div>
+
+      <section class="features">
+        <div class="feature">
+          <div class="feature-icon"><i class="fas fa-brain"></i></div>
+          <h3>Smart Mood Detection</h3>
+          <p>Emoji sliders, optional voice input and quick AI-based check-ins to track your emotional state.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><i class="fas fa-tasks"></i></div>
+          <h3>Daily Quests</h3>
+          <p>Short, doable mental fitness tasks that build habit and reward you with streaks & badges.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><i class="fas fa-hands-helping"></i></div>
+          <h3>Emergency Support</h3>
+          <p>One-click calm mode with breathing exercises and local emergency contacts when you need help.</p>
+        </div>
+      </section>
+
+      <section class="quick-actions">
+        <h3>Quick Actions</h3>
+        <div class="action-grid">
+          <button class="action-btn" data-action="breathing">
+            <i class="fas fa-wind"></i>
+            <span>Breathing Exercise</span>
+          </button>
+          <button class="action-btn" data-action="dance">
+            <i class="fas fa-child"></i>
+            <span>Dance Therapy</span>
+          </button>
+          <button class="action-btn" data-action="quote">
+            <i class="fas fa-quote-right"></i>
+            <span>Daily Quote</span>
+          </button>
+          <button class="action-btn" data-action="music">
+            <i class="fas fa-music"></i>
+            <span>Play Music</span>
+          </button>
+        </div>
+      </section>
+    </section>
+
+    <!-- Check-in -->
+    <section id="checkin" class="page">
+      <h2>How are you feeling today?</h2>
+      <div class="checkin-panel">
+        <label class="mood-label">Choose your mood:</label>
+        <div class="emoji-row">
+          <button class="emoji-btn" data-value="1" title="Very Sad">😢</button>
+          <button class="emoji-btn" data-value="2" title="Sad">😟</button>
+          <button class="emoji-btn" data-value="3" title="Neutral">😐</button>
+          <button class="emoji-btn" data-value="4" title="Happy">🙂</button>
+          <button class="emoji-btn" data-value="5" title="Very Happy">😄</button>
+        </div>
+
+        <div class="slider-wrap">
+          <input id="mood-slider" type="range" min="1" max="5" value="3">
+          <div class="slider-labels">
+            <span>Low</span><span>High</span>
+          </div>
+        </div>
+
+        <div class="mood-factors">
+          <h4>What's affecting your mood today?</h4>
+          <div class="factor-tags">
+            <button class="factor-tag" data-factor="sleep">Sleep <i class="far fa-moon"></i></button>
+            <button class="factor-tag" data-factor="work">Work <i class="fas fa-briefcase"></i></button>
+            <button class="factor-tag" data-factor="relationships">Relationships <i class="fas fa-heart"></i></button>
+            <button class="factor-tag" data-factor="health">Health <i class="fas fa-heartbeat"></i></button>
+            <button class="factor-tag" data-factor="finance">Finance <i class="fas fa-money-bill-wave"></i></button>
+            <button class="factor-tag" data-factor="other">Other <i class="fas fa-ellipsis-h"></i></button>
+          </div>
+        </div>
+
+        <label for="notes">Quick note (optional)</label>
+        <textarea id="notes" placeholder="A line or two about how you're feeling..."></textarea>
+
+        <div class="checkin-actions">
+          <button id="save-checkin" class="btn">Save Check-in</button>
+          <button id="panic-btn" class="btn btn-danger">I Need Help Now</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Journal -->
+    <section id="journal" class="page">
+      <h2>Daily Journal</h2>
+      <p>Write freely about your thoughts and feelings. Your entries are private and saved securely.</p>
+      
+      <div class="journal-prompts">
+        <h4>Need inspiration? Try one of these prompts:</h4>
+        <div class="prompts-container">
+          <button class="prompt-btn">What made me smile today?</button>
+          <button class="prompt-btn">What challenges did I face?</button>
+          <button class="prompt-btn">What am I grateful for?</button>
+          <button class="prompt-btn">How can I be kinder to myself?</button>
+        </div>
+      </div>
+      
+      <textarea id="journal-text" placeholder="Write about your day, your feelings, or use one of the prompts above..." rows="8"></textarea>
+      
+      <div class="journal-actions">
+        <button id="voice-journal" class="btn btn-outline"><i class="fas fa-microphone"></i> Voice Note</button>
+        <button id="save-journal" class="btn">Save Entry</button>
+        <button id="clear-journal" class="btn btn-outline">Clear</button>
+      </div>
+
+      <div id="journal-list" class="journal-list">
+        <h3>Your Journal History</h3>
+        <div class="journal-filter">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="week">This Week</button>
+          <button class="filter-btn" data-filter="month">This Month</button>
+        </div>
+        <div class="entries-container"></div>
+      </div>
+    </section>
+
+    <!-- Music Therapy -->
+    <section id="music" class="page">
+      <h2>Music Therapy</h2>
+      <p>Add your favorite songs to create a personalized playlist for when you need a mood boost.</p>
+      
+      <div class="music-player">
+        <div class="now-playing">
+          <div class="album-art">
+            <i class="fas fa-music"></i>
+          </div>
+          <div class="track-info">
+            <h3 id="current-track">No track selected</h3>
+            <p id="current-artist">Add songs to your playlist</p>
+          </div>
+          <div class="player-controls">
+            <button id="prev-track" class="control-btn"><i class="fas fa-step-backward"></i></button>
+            <button id="play-pause" class="control-btn play-btn"><i class="fas fa-play"></i></button>
+            <button id="next-track" class="control-btn"><i class="fas fa-step-forward"></i></button>
+          </div>
+          <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+          </div>
+        </div>
+        
+        <div class="playlist-actions">
+          <button id="shuffle-play" class="btn"><i class="fas fa-random"></i> Shuffle Play</button>
+          <button id="add-song" class="btn btn-outline"><i class="fas fa-plus"></i> Add Song</button>
+        </div>
+        
+        <div class="add-song-modal hidden">
+          <h3>Add a New Song</h3>
+          <div class="form-group">
+            <label for="song-title">Song Title</label>
+            <input type="text" id="song-title" placeholder="Enter song title">
+          </div>
+          <div class="form-group">
+            <label for="song-artist">Artist</label>
+            <input type="text" id="song-artist" placeholder="Enter artist name">
+          </div>
+          <div class="form-group">
+            <label for="song-url">YouTube URL (optional)</label>
+            <input type="text" id="song-url" placeholder="https://www.youtube.com/watch?v=...">
+          </div>
+          <div class="modal-actions">
+            <button id="cancel-add" class="btn btn-outline">Cancel</button>
+            <button id="confirm-add" class="btn">Add Song</button>
+          </div>
+        </div>
+        
+        <div class="playlist-container">
+          <h3>Your Playlist</h3>
+          <div id="playlist" class="playlist">
+            <!-- Songs will be added here dynamically -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resources -->
+    <section id="resources" class="page">
+      <h2>Mental Health Resources</h2>
+      
+      <div class="daily-quote">
+        <h3>Quote of the Day</h3>
+        <div class="quote-card">
+          <p id="quote-text">"You are braver than you believe, stronger than you seem, and smarter than you think."</p>
+          <p id="quote-author">— A.A. Milne</p>
+          <button id="new-quote" class="btn btn-outline"><i class="fas fa-sync-alt"></i> New Quote</button>
+        </div>
+      </div>
+      
+      <div class="breathing-exercises">
+        <h3>Breathing Exercises</h3>
+        <div class="exercises-grid">
+          <div class="exercise-card" data-technique="box">
+            <h4>Box Breathing</h4>
+            <p>4-4-4-4 technique for stress relief</p>
+            <button class="btn btn-small">Start</button>
+          </div>
+          <div class="exercise-card" data-technique="478">
+            <h4>4-7-8 Breathing</h4>
+            <p>Calm your mind in minutes</p>
+            <button class="btn btn-small">Start</button>
+          </div>
+          <div class="exercise-card" data-technique="belly">
+            <h4>Belly Breathing</h4>
+            <p>Deep breathing for relaxation</p>
+            <button class="btn btn-small">Start</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="dance-therapy">
+        <h3>Dance Therapy</h3>
+        <div class="dance-videos">
+          <div class="video-card" data-video="dQw4w9WgXcQ">
+            <div class="video-thumbnail">
+              <i class="fas fa-play"></i>
+            </div>
+            <h4>5-Minute Joyful Movement</h4>
+            <p>Short routine to boost your mood</p>
+          </div>
+          <div class="video-card" data-video="tAP0BLCDM7I">
+            <div class="video-thumbnail">
+              <i class="fas fa-play"></i>
+            </div>
+            <h4>Stress Relief Dance Flow</h4>
+            <p>Release tension through movement</p>
+          </div>
+          <div class="video-card" data-video="JQbjS0_ZfJ0">
+            <div class="video-thumbnail">
+              <i class="fas fa-play"></i>
+            </div>
+            <h4>Morning Energy Booster</h4>
+            <p>Start your day with positive energy</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="articles-section">
+        <h3>Helpful Articles</h3>
+        <div class="articles-grid">
+          <div class="article-card">
+            <h4>10 Ways to Reduce Anxiety</h4>
+            <p>Practical tips for managing daily anxiety</p>
+            <a href="#" class="btn btn-small">Read</a>
+          </div>
+          <div class="article-card">
+            <h4>The Power of Gratitude</h4>
+            <p>How keeping a gratitude journal helps</p>
+            <a href="#" class="btn btn-small">Read</a>
+          </div>
+          <div class="article-card">
+            <h4>Building Resilience</h4>
+            <p>Strategies to bounce back from setbacks</p>
+            <a href="#" class="btn btn-small">Read</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reports -->
+    <section id="reports" class="page">
+      <h2>Your Mental Health Reports</h2>
+      <p>Track your progress and share insights with your healthcare provider if needed.</p>
+      
+      <div class="report-actions">
+        <button id="export-report" class="btn"><i class="fas fa-file-export"></i> Export Report</button>
+        <button id="print-report" class="btn btn-outline"><i class="fas fa-print"></i> Print</button>
+      </div>
+      
+      <div class="report-section">
+        <h3>Weekly Mood Report</h3>
+        <div class="chart-card">
+          <canvas id="moodChart" width="400" height="200"></canvas>
+        </div>
+        <div class="chart-card">
+          <canvas id="factorsChart" width="400" height="200"></canvas>
+        </div>
+      </div>
+      
+      <div class="report-section">
+        <h3>Journal Insights</h3>
+        <div class="insights-container">
+          <div class="insight-card">
+            <h4>Most Common Words</h4>
+            <div class="word-cloud">
+              <!-- Words will be added dynamically -->
+            </div>
+          </div>
+          <div class="insight-card">
+            <h4>Mood Patterns</h4>
+            <p id="mood-pattern-text">Your mood patterns will appear here after several check-ins.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="report-section">
+        <h3>Activity Summary</h3>
+        <div class="activity-stats">
+          <div class="stat-card">
+            <h4>Check-ins</h4>
+            <p class="stat-number" id="checkin-count">0</p>
+            <p>this month</p>
+          </div>
+          <div class="stat-card">
+            <h4>Journal Entries</h4>
+            <p class="stat-number" id="journal-count">0</p>
+            <p>this month</p>
+          </div>
+          <div class="stat-card">
+            <h4>Music Therapy</h4>
+            <p class="stat-number" id="music-count">0</p>
+            <p>listened</p>
+          </div>
+          <div class="stat-card">
+            <h4>Breathing Exercises</h4>
+            <p class="stat-number" id="breathing-count">0</p>
+            <p>completed</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="report-note">
+        <p>Tip: Consistency is key — try to check in daily for clearer patterns. Share these reports with your therapist or doctor to help them understand your mental health journey.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- AI Chatbot -->
+  <div id="chatbot" class="chatbot hidden">
+    <div class="chatbot-header">
+      <h3>Mindy <span>Your Mental Health Companion</span></h3>
+      <button id="close-chat" class="chat-close-btn"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="chatbot-messages">
+      <div class="chat-message bot-message">
+        <div class="message-avatar">M</div>
+        <div class="message-content">
+          <p>Hi there! I'm Mindy. How are you feeling today?</p>
+          <div class="quick-replies">
+            <button class="quick-reply">I'm feeling anxious</button>
+            <button class="quick-reply">I'm feeling sad</button>
+            <button class="quick-reply">I'm doing okay</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="chatbot-input">
+      <input type="text" placeholder="Type your message..." id="chat-input">
+      <button id="send-message"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+
+  <!-- Panic Modal -->
+  <div id="panic-modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <h3>Calm Mode Activated</h3>
+      <p>Take a deep breath. Follow this guided breathing exercise to help you feel better.</p>
+      
+      <div class="breathing-visual">
+        <div class="circle-container">
+          <div class="breathing-circle"></div>
+          <div class="breath-text">Breathe In</div>
+          <div class="timer">4</div>
+        </div>
+      </div>
+      
+      <div class="emergency-contacts">
+        <h4>Emergency Contacts</h4>
+        <div class="contact-list">
+          <a href="tel:911" class="contact-btn"><i class="fas fa-phone"></i> Emergency Services (911)</a>
+          <a href="tel:18002738255" class="contact-btn"><i class="fas fa-phone"></i> Suicide Prevention Lifeline (1-800-273-8255)</a>
+          <a href="tel:18009856690" class="contact-btn"><i class="fas fa-phone"></i> Crisis Text Line (Text HOME to 741741)</a>
+        </div>
+      </div>
+      
+      <div class="modal-actions">
+        <button id="close-panic" class="btn btn-outline">I'm Feeling Better</button>
+        <a id="hotline" class="btn btn-danger" href="tel:112"><i class="fas fa-phone"></i> Call Emergency</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video Modal -->
+  <div id="video-modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content video-content">
+      <button id="close-video" class="video-close-btn"><i class="fas fa-times"></i></button>
+      <div class="video-container">
+        <iframe id="youtube-player" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div>Made with ❤️ — Studio Shodwe</div>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Contact Us</a>
+    </div>
+  </footer>
+
+  <script src="pixel.js"></script>
+</body>
+</html>
